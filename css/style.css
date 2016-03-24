@@ -1,3 +1,28 @@
 h1 {
-  color: blue;
+  color: red;
+}
+
+.board {
+  height: 880px;
+  width: 360px;
+  border: 2px solid black;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.rows {
+  float: left;
+  height: 80px;
+  width: 360px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.cells {
+  float: left;
+  height: 78px;
+  width: 58px;
+  border: 1px solid black;
+  list-style-type: none;
+  padding: 0;
 }
