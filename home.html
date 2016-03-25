@@ -3,10 +3,28 @@
 <head>
   <title>Project 1</title>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
   <h1>Mastermind</h1>
+  <div class="panel">
+    <h2>Can you guess the colour sequence the computer has chosen, and the order it's in?</h2>
+    <p>See if you can beat the bot in only 10 goes.</p>
+    <p>Click on the corresponding colored peg to pick and place your peg in the row. When you choose a colour it will place it in the order you have clicked. You can choose the same colour as many times as you like, and you can also delete a choice you have made.</p>
+    <p>Good luck!</p>
+    <div class="colorChoice">
+      <input type="button" value="red" id="redButton"></input>
+      <input type="button" value="blue" id="blueButton"></input>
+      <input type="button" value="green" id="greenButton"></input>
+      <input type="button" value="purple" id="purpleButton"></input>
+      <input type="button" value="yellow" id="yellowButton"></input>
+      <input type="button" value="orange" id="orangeButton"></input>
+    </div>
+    <input type="button" value="Check" id="checkResult"></input>
+    <input type="button" value="Delete" id="deleteChoice"></input>
+    <input type="button" value="New Game" id="playAgain"></input>
+  </div>
   <ul class="board">
     <li class="rows">
       <ul class="singleRows">
@@ -16,6 +34,176 @@
         <li class="cells"></li>
         <li class="cells"></li>
         <li class="cells"></li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells"></li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
