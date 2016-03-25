@@ -36,6 +36,7 @@ h1 {
 
 .singleRows {
   padding: 0;
+  height: 38px;
   list-style: none;
 }
 

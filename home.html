@@ -14,18 +14,19 @@
     <p>Click on the corresponding colored peg to pick and place your peg in the row. When you choose a colour it will place it in the order you have clicked. You can choose the same colour as many times as you like, and you can also delete a choice you have made.</p>
     <p>Good luck!</p>
     <div class="colorChoice">
-      <input type="button" value="red" id="redButton"></input>
-      <input type="button" value="blue" id="blueButton"></input>
-      <input type="button" value="green" id="greenButton"></input>
-      <input type="button" value="purple" id="purpleButton"></input>
-      <input type="button" value="yellow" id="yellowButton"></input>
-      <input type="button" value="orange" id="orangeButton"></input>
+      <button id="red">Red</button>
+      <button id="blue">Blue</button>
+      <button id="green">Green</button>
+      <button id="purple">Purple</button>
+      <button id="orange">Orange</button>
+      <button id="yellow">Yellow</button>
     </div>
     <input type="button" value="Check" id="checkResult"></input>
     <input type="button" value="Delete" id="deleteChoice"></input>
     <input type="button" value="New Game" id="playAgain"></input>
   </div>
   <ul class="board">
+  <!-- this is the top row - only for decoration -->
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -36,6 +37,25 @@
         <li class="cells"></li>
       </ul>
     </li>
+
+    <li class="rows">
+      <ul class="singleRows">
+        <li class="cells">a</li>
+        <li class="cells">a</li>
+        <li class="cells">a</li>
+        <li class="cells">a</li>
+        <li class="cells">a</li>
+        <li class="cells">
+          <ul class="results">
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+            <li class="resultGrid"></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -53,6 +73,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -70,6 +91,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -87,6 +109,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -104,6 +127,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -121,6 +145,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -138,6 +163,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -155,6 +181,7 @@
         </li>
       </ul>
     </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
@@ -172,23 +199,7 @@
         </li>
       </ul>
     </li>
-    <li class="rows">
-      <ul class="singleRows">
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells">
-          <ul class="results">
-            <li class="resultGrid"></li>
-            <li class="resultGrid"></li>
-            <li class="resultGrid"></li>
-            <li class="resultGrid"></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+
     <li class="rows">
       <ul class="singleRows">
         <li class="cells"></li>
