@@ -17,13 +17,16 @@
 
 $(function() {
 
-  var computerArray   = [];
-  var playerSelection = [];
-  var $rows           = $(".singleRows");
-  var cells           = $(".cells");
-  var grid            = [];
-  var numberOfGos     = 0;
-  var numberOfGuesses = 0;
+  var computerSelection = [];
+  var playerSelection   = [];
+  var $rows             = $(".singleRows");
+  var $cells            = $(".cells");
+  var $check            = $("#check");
+  var $delete           = $("#delete");
+  var $playAgain        = $("#playAgain")
+  var numberOfGos       = 0;
+  var numberOfGuesses   = 0;
+  
 
   $(".colorChoice button").on("click", function(){
     // Get the selected color
@@ -35,6 +38,7 @@ $(function() {
     // Change the cell to play to be the colour of the button that you have clicked
     $cellToPlay.css("background", color);
     playerSelection.push(color);
+    playerSelection.toString();
     console.log(playerSelection);
 
     // Increment the number of guesses
@@ -42,36 +46,65 @@ $(function() {
     if (numberOfGuesses === 4) {
       numberOfGos++;
       numberOfGuesses = 0;
+      playerSelection = [];
       // Check for matches
       // Add the marker pins
     }
   })
 
+  $($check).on("click", calculateScore);
 
-function start() {
+ function calculateScore(guess, computer) {
+   var black = 0;
+   var white = 0;
+
+   // Loop through to match if there are any exact matches
+   for (var i = 0; i < guess.length; i++) {
+     if (guess[i] === computer[i]) {
+       black++;
+       // Remove from both arrays
+       guess.splice(i, 1);
+       computer.splice(i, 1);
+     }
+   }
+
+   // Then loop through the remaining to see if there are any that appear in the array
+   for (var i = 0; i < guess.length; i++) {
+     var index = computer.indexOf(guess[i]);
+     if (index >= 0) {
+       white++;
+       // Remove that item from the array so as not to double count
+       computer.splice(index, 1);
+     }
+   }
+
+   return {
+     black: black,
+     white: white
+   };
+ }
+calculateScore(guess, computer);
+
+  function start() {
   //want to loop over the array of color choices and run a click event on them
   // so then which ever one the player has clicked on an action will run
   //PUSH each of their choices into a new array which will be compared to computers
   // You also want to display the chosen color in the correct box! How!!!
 }
 
-function colorSelect() {
+function computerChoice() {
   //this function is for the computer to select 4 colours out of the 6 at random
   //then save them into a new array which will then by compared to player's choice
   var colors = ['red', 'blue', 'green', 'purple', 'yellow', 'orange'];
   for (var i = 0; i < 4; i++) {
     var selectedColor = colors[Math.floor(Math.random()*colors.length)];
-    computerArray.push(selectedColor);
+    computerSelection.push(selectedColor);
+    computerSelection.toString();
   }
 
-  console.log(computerArray);
+  console.log(computerSelection);
 }
-
-colorSelect();
-
-
-
-
+computerChoice();
 
 
 
