@@ -26,6 +26,20 @@ $(function() {
   var $playAgain        = $("#playAgain")
   var numberOfGos       = 0;
   var numberOfGuesses   = 0;
+
+  function computerChoice() {
+    //this function is for the computer to select 4 colours out of the 6 at random
+    //then save them into a new array which will then by compared to player's choice
+    var colors = ['red', 'blue', 'green', 'purple', 'yellow', 'orange'];
+    for (var i = 0; i < 4; i++) {
+      var selectedColor = colors[Math.floor(Math.random()*colors.length)];
+      computerSelection.push(selectedColor);
+       computerSelection.toString();
+    } 
+    console.log(computerSelection);
+    return computerSelection;
+  }
+  computerChoice();
   
 
   $(".colorChoice button").on("click", function(){
@@ -54,6 +68,9 @@ $(function() {
 
   $($check).on("click", calculateScore);
 
+  var guessArray    = playerSelection;
+  var computerArray = computerSelection;
+
  function calculateScore(guess, computer) {
    var black = 0;
    var white = 0;
@@ -77,34 +94,13 @@ $(function() {
        computer.splice(index, 1);
      }
    }
-
-   return {
+    return {
      black: black,
      white: white
    };
  }
-calculateScore(guess, computer);
 
-  function start() {
-  //want to loop over the array of color choices and run a click event on them
-  // so then which ever one the player has clicked on an action will run
-  //PUSH each of their choices into a new array which will be compared to computers
-  // You also want to display the chosen color in the correct box! How!!!
-}
 
-function computerChoice() {
-  //this function is for the computer to select 4 colours out of the 6 at random
-  //then save them into a new array which will then by compared to player's choice
-  var colors = ['red', 'blue', 'green', 'purple', 'yellow', 'orange'];
-  for (var i = 0; i < 4; i++) {
-    var selectedColor = colors[Math.floor(Math.random()*colors.length)];
-    computerSelection.push(selectedColor);
-    computerSelection.toString();
-  }
-
-  console.log(computerSelection);
-}
-computerChoice();
 
 
 
