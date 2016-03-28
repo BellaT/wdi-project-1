@@ -156,6 +156,8 @@ $(function() {
 
     if (display.black === 4) {
       showSolution();
+      var audio = new Audio("./yiiiiiiihoo.mp3");
+         audio.play();
       alert("Winner! Ding Ding Ding");
     }
   }
