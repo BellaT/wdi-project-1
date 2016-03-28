@@ -23,22 +23,27 @@ $(function() {
   var $column1          = $(".singleRows > li:nth-child(1)").splice(1,10);
   var $cells            = $(".cells");
   var $check            = $("#check");
-  var $delete           = $("#delete");
   var $playAgain        = $("#playAgain")
   var numberOfGos       = 0;
   var numberOfGuesses   = 0;
   var $playAgain        = $("#playAgain")
 
   $playAgain.on("click", function() {
-    $(".solution li").css("background-color", "#A26236");
-    $(".singleRows li").css("background-color", "#A26236");
+    $(".solution li").css("background-color", "#36ddd4");
+    $(".singleRows li").css("background-color", "#36ddd4");
     playerSelection   = [];
     computerSelection = [];
     computerClone     = [];
     guessClone        = [];
     numberOfGos       = 0;
+    numberOfGuesses   = 0;
     computerChoice();
+    $(".selector").removeClass("selector");
+    $($column1[0]).addClass("selector");
   })
+
+  $($column1[0]).addClass("selector");
+
 
   function computerChoice() {
     //this function is for the computer to select 4 colours out of the 6 at random
@@ -56,6 +61,10 @@ $(function() {
   
 
   $(".colorChoice button").on("click", function(){
+    // Check for 4 guesses
+    if (numberOfGuesses === 4) return alert("You can't guess anymore!");
+
+
     // Get the selected color
     var color       = this.id;
     // Find the row, according to the number of "gos" you've had (4xguesses)
@@ -68,28 +77,25 @@ $(function() {
     // playerSelection.toString();
     // console.log(playerSelection);
 
-    // Increment the number of guesses
     numberOfGuesses++;
-
-    if (numberOfGuesses === 4) {
-      numberOfGos++;
-      numberOfGuesses = 0;
-      // Check for matches
-      // Add the marker pins
-    }
   })
 
   $check.on("click", function(){
-    calculateScore(playerSelection, computerSelection)
+    if (numberOfGuesses !== 4) return alert("Guess more pegs!");
+
+    numberOfGos++;
+    numberOfGuesses = 0;
+
+    calculateScore(playerSelection, computerSelection);
+    $($column1[numberOfGos-1]).removeClass("selector");
+    $($column1[numberOfGos]).addClass("selector");
   });
 
-  function calculateScore(guess, computer) {
-    console.log(guess, computer);
-    var computerClone = computer.slice(0);
-    var guessClone    = guess.slice(0);
 
-    console.log("comp", computerClone);
-    console.log("guess", guessClone);
+  function calculateScore(guess, computer) {
+    // console.log(guess, computer);
+    var computerClone = computer.slice(0);
+    var guessClone    = guess.slice(0);    
 
     var black = 0;
     var white = 0;
@@ -98,24 +104,27 @@ $(function() {
     for (var i = 0; i < guessClone.length; i++) {
       if (guessClone[i] === computerClone[i]) {
         black++;
-        // Make that colour in the computer array null to prevent double lookup
+        // Remove from both arrays
+        guessClone[i] = null;
         computerClone[i] = null;
-        console.log(computerClone[i]);
-        // computerClone.splice(i, 1);
       }
     }
 
-    console.log("comp2", computerClone);
-    console.log("guess2", guessClone);
-
-    // Then loop through the remaining to see if there are any that appear in the array
+    // Loop through the guessArray
     for (var i = 0; i < guessClone.length; i++) {
-      var index = computerClone.indexOf(guessClone[i]);
-      console.log()
-      if (index >= 0) {
-        white++;
-        // Remove that item from the array so as not to double count
-        computerClone.splice(index, 1);
+      // Loop through the computerArray
+      for (var x = 0; x < computerClone.length; x++) {
+        // Check the first value in the guessArray for every value in the computerArray
+        // If the guess is and the computer do not equal null (therefore aren't black matches)
+        if (guessClone[i] && computerClone[x]) {
+          // If there is a match, they must be a white
+          if (guessClone[i] === computerClone[x]) {
+            white++;
+            // Set both to be null so they don't get counted twice
+            computerClone[x] = null;
+            guessClone[i]    = null;
+          }
+        }
       }
     }
     
@@ -124,11 +133,8 @@ $(function() {
       white: white
     }
 
-    console.log("result", result);
-
     // Clear selection
     playerSelection = [];
-
 
     return displayScore(result)
     // return result;

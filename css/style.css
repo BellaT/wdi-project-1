@@ -1,40 +1,50 @@
 body {
-  background-image: url("http://cdn01.wallconvert.com/_media/wallpapers_1920x1200/1/2/fireworks-14236.jpg");
-  background-position: center;
-  background: cover;
-  background-size: 100%;
+  background: #36ddd4;
 }
 
 h1 {
-  color: red;
+  color: white;
+  text-align: center;
+  font-family: Tahoma;
+}
+
+#main {
+  width: 800px;
+  margin: 0 auto;
 }
 
 .panel {
-  height: 430px;
+  height: 480px;
   width: 230px;
   border: 2px solid black;
-  display: inline-block;
-  margin: 0, 20px;
+  float: left;
+  margin: 20px;
   padding: 10px;
 }
 
 .panel h2 {
   font-size: 20px;
   font-family: Tahoma;
+  color: white;
 }
 
 .panel p {
   font-size: 12px;
   font-family: Tahoma;
+  color: white;
+}
+
+.panel p span {
+  color: black;
 }
 
 .board {
   height: 440px;
   width: 240px;
   padding: 0;
-  margin: 0, 20px;
+  margin: 20px;
   border: 2px solid black;
-  display: inline-block;
+  float: left;
 }
 
 .rows {
@@ -75,16 +85,21 @@ h1 {
   margin: 0;
 }
 
+.resultGrid li {
+  border-radius: 100%;
+}
+
 .resultBox {
   height: 100px;
   width: 164px;
-  margin: 0, 20px;
+  margin: 200px, 20px;
   text-align: center;
-  display: inline-block;
+  float: left;
 }
 
 .resultBox h2 {
   font-family: Tahoma;
+  color: white;
 }
 
 .solution {
@@ -105,30 +120,107 @@ h1 {
   margin: 0;
   list-style-type: none;
   float: left;
+  border-radius: 100%;
 }
+
+.selector {
+  background-image: url("http://img2.etsystatic.com/il_570xN.271923526.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+  border-radius: 4px solid rgba(0,0,0,0.7);
+/*  background-blend-mode: color-burn;
+*/}
 
 #q1 {
   background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 100%;
 }
 
 #q2 {
   background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 100%;
 }
 
 #q3 {
   background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 100%;
 }
 
 #q4 {
   background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 100%;
+}
+
+.colorChoice {
+  display: inline-block;
+  margin: 10px;
+}
+
+#red {
+  background: #ff3430;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
+
+#blue {
+  background: #0a3887;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
+
+#green {
+  background: #3ab306;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
+
+#purple {
+  background: #8230a9;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
+
+#yellow {
+  background: #ffff3c;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
+
+#orange {
+  background: #ff7400;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
+
+#check {
+  background: black;
+  color: white;
+  font-family: Tahoma;
+  margin: 20px;
+  font-size: 15px;
+}
+
+#playAgain {
+  background: black;
+  color: white;
+  font-family: Tahoma;
+  margin: 20px;
+  font-size: 15px;
 }
 
 
