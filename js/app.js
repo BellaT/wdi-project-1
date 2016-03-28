@@ -71,7 +71,7 @@ $(function() {
   var guessArray    = playerSelection;
   var computerArray = computerSelection;
 
- function calculateScore(guess, computer) {
+  function calculateScore(guess, computer) {
    var black = 0;
    var white = 0;
 
@@ -94,12 +94,27 @@ $(function() {
        computer.splice(index, 1);
      }
    }
-    return {
+   return {
      black: black,
      white: white
    };
  }
 
+ function displayScore(display) {
+  var results,
+  b, w, ww;
+
+  var results = $(".results").eq(numberOfGos - numberOfGuesses).find(".resultGrid");
+
+  for(b = 0; b < display.black; b++){
+   $(results[b]).addClass('black');
+ }
+
+ for(ww = display.white, w = b; ww > 0; ww--, w++){
+   $(results[w]).addClass('white');
+ }
+ console.log(results);
+}
 
 
 
