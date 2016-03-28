@@ -20,6 +20,7 @@ $(function() {
   var computerSelection = [];
   var playerSelection   = [];
   var $rows             = $(".singleRows");
+  var $column1          = $(".singleRows > li:nth-child(1)").splice(1,10);
   var $cells            = $(".cells");
   var $check            = $("#check");
   var $delete           = $("#delete");
@@ -27,7 +28,6 @@ $(function() {
   var numberOfGos       = 0;
   var numberOfGuesses   = 0;
   var $playAgain        = $("#playAgain")
-
 
   $playAgain.on("click", function() {
     $(".solution li").css("background-color", "#A26236");
@@ -38,19 +38,6 @@ $(function() {
     guessClone        = [];
     numberOfGos       = 0;
     computerChoice();
-    // numberOfGuesses   = 0;
-    // computerChoice();
-
-        // $($rows).each(function(i, row){
-    //   $(row).children('li').empty();
-    // })
-    // for(i = 1; i < $rows.length; i++) {
-    //   $rows[i]
-    // }
-    // for (j = 0; j < $rows.length; j++) {
-    //   $($rows[j][0] + " li").empty();
-    //   $(".solution li").empty();
-    // }
   })
 
   function computerChoice() {
@@ -113,6 +100,8 @@ $(function() {
         black++;
         // Make that colour in the computer array null to prevent double lookup
         computerClone[i] = null;
+        console.log(computerClone[i]);
+        // computerClone.splice(i, 1);
       }
     }
 
@@ -122,6 +111,7 @@ $(function() {
     // Then loop through the remaining to see if there are any that appear in the array
     for (var i = 0; i < guessClone.length; i++) {
       var index = computerClone.indexOf(guessClone[i]);
+      console.log()
       if (index >= 0) {
         white++;
         // Remove that item from the array so as not to double count

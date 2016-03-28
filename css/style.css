@@ -1,3 +1,10 @@
+body {
+  background-image: url("http://cdn01.wallconvert.com/_media/wallpapers_1920x1200/1/2/fireworks-14236.jpg");
+  background-position: center;
+  background: cover;
+  background-size: 100%;
+}
+
 h1 {
   color: red;
 }
@@ -6,26 +13,28 @@ h1 {
   height: 430px;
   width: 230px;
   border: 2px solid black;
-  float: left;
-  margin: 0 auto;
+  display: inline-block;
+  margin: 0, 20px;
   padding: 10px;
 }
 
 .panel h2 {
   font-size: 20px;
+  font-family: Tahoma;
 }
 
 .panel p {
   font-size: 12px;
+  font-family: Tahoma;
 }
 
 .board {
   height: 440px;
   width: 240px;
   padding: 0;
-  margin: 0 auto;
+  margin: 0, 20px;
   border: 2px solid black;
-  background: #A26236;
+  display: inline-block;
 }
 
 .rows {
@@ -69,8 +78,13 @@ h1 {
 .resultBox {
   height: 100px;
   width: 164px;
-  margin: 0 auto;
+  margin: 0, 20px;
   text-align: center;
+  display: inline-block;
+}
+
+.resultBox h2 {
+  font-family: Tahoma;
 }
 
 .solution {
@@ -93,16 +107,28 @@ h1 {
   float: left;
 }
 
-.black {
-  background: black;
+#q1 {
+  background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.white {
-  background: white;
+#q2 {
+  background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.brown {
-  background: #A26236;
+#q3 {
+  background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#q4 {
+  background-image: url("http://2.bp.blogspot.com/-wx0msUGf1yE/TZKKhMBvFRI/AAAAAAAAElI/fnz2SGqIAW8/s1600/question-mark.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 
