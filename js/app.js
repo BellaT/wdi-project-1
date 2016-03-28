@@ -26,6 +26,32 @@ $(function() {
   var $playAgain        = $("#playAgain")
   var numberOfGos       = 0;
   var numberOfGuesses   = 0;
+  var $playAgain        = $("#playAgain")
+
+
+  $playAgain.on("click", function() {
+    $(".solution li").css("background-color", "#A26236");
+    $(".singleRows li").css("background-color", "#A26236");
+    playerSelection   = [];
+    computerSelection = [];
+    computerClone     = [];
+    guessClone        = [];
+    numberOfGos       = 0;
+    computerChoice();
+    // numberOfGuesses   = 0;
+    // computerChoice();
+
+        // $($rows).each(function(i, row){
+    //   $(row).children('li').empty();
+    // })
+    // for(i = 1; i < $rows.length; i++) {
+    //   $rows[i]
+    // }
+    // for (j = 0; j < $rows.length; j++) {
+    //   $($rows[j][0] + " li").empty();
+    //   $(".solution li").empty();
+    // }
+  })
 
   function computerChoice() {
     //this function is for the computer to select 4 colours out of the 6 at random
@@ -34,20 +60,12 @@ $(function() {
     for (var i = 0; i < 4; i++) {
       var selectedColor = colors[Math.floor(Math.random()*colors.length)];
       computerSelection.push(selectedColor);
-      // computerSelection.toString();
     } 
-
-    // console.log(computerSelection)
-
-    $.each(computerSelection, function(index, value) {
-      $("#compChoice" + index).css("background", value);
-    });
-    
+    console.log(computerSelection)
     return computerSelection;
   }
   
   computerChoice();
-  showSolution();
   
 
   $(".colorChoice button").on("click", function(){
@@ -58,7 +76,7 @@ $(function() {
     // Find the next cell to play, according to the number of guesses you've had
     var $cellToPlay = $($rowToPlay.children(".cells")[1+numberOfGuesses])
     // Change the cell to play to be the colour of the button that you have clicked
-    $cellToPlay.css("background", color);
+    $cellToPlay.css("background-color", color);
     playerSelection.push(color);
     // playerSelection.toString();
     // console.log(playerSelection);
@@ -79,6 +97,7 @@ $(function() {
   });
 
   function calculateScore(guess, computer) {
+    console.log(guess, computer);
     var computerClone = computer.slice(0);
     var guessClone    = guess.slice(0);
 
@@ -120,37 +139,36 @@ $(function() {
     // Clear selection
     playerSelection = [];
 
-   
+
     return displayScore(result)
     // return result;
-}
-
-function displayScore(display) {
-  // Create variables seperated by commas
-  var results, b, w, ww;
-
-  var results = $(".results").eq(numberOfGos - 1).find(".resultGrid");
-
-  for (var b = 0; b < display.black; b++){
-    $(results[b]).addClass('black');
   }
 
-  for (ww = display.white, w = b; ww > 0; ww--, w++){
-    $(results[w]).addClass('white');
-  }
-}
+  function displayScore(display) {
+    // Create variables seperated by commas
+    var results, b, w, ww;
 
-function showSolution() {
-  for (var i = 0; i < $rows; i++) {
-    if (guessArray === computerArray) {
-      $(".solution").html(computerChoice)
-    } else {
-      $(".solution").html(computerChoice)
+    var results = $(".results").eq(numberOfGos - 1).find(".resultGrid");
+
+    for (var b = 0; b < display.black; b++){
+      $(results[b]).css("background-color", "black");
     }
-  } 
-}
 
+    for (ww = display.white, w = b; ww > 0; ww--, w++){
+      $(results[w]).css("background-color", "white");
+    }
 
+    if (display.black === 4) {
+      showSolution();
+      alert("Winner! Ding Ding Ding");
+    }
+  }
+
+  function showSolution() {
+    $.each(computerSelection, function(index, value) {
+      $("#compChoice" + index).css("background-color", value);
+    });
+  }
 
 });
 
