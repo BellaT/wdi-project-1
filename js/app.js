@@ -34,12 +34,20 @@ $(function() {
     for (var i = 0; i < 4; i++) {
       var selectedColor = colors[Math.floor(Math.random()*colors.length)];
       computerSelection.push(selectedColor);
-       computerSelection.toString();
+      // computerSelection.toString();
     } 
-    console.log(computerSelection);
+
+    // console.log(computerSelection)
+
+    $.each(computerSelection, function(index, value) {
+      $("#compChoice" + index).css("background", value);
+    });
+    
     return computerSelection;
   }
+  
   computerChoice();
+  showSolution();
   
 
   $(".colorChoice button").on("click", function(){
@@ -52,71 +60,95 @@ $(function() {
     // Change the cell to play to be the colour of the button that you have clicked
     $cellToPlay.css("background", color);
     playerSelection.push(color);
-    playerSelection.toString();
-    console.log(playerSelection);
+    // playerSelection.toString();
+    // console.log(playerSelection);
 
     // Increment the number of guesses
     numberOfGuesses++;
+
     if (numberOfGuesses === 4) {
       numberOfGos++;
       numberOfGuesses = 0;
-      playerSelection = [];
       // Check for matches
       // Add the marker pins
     }
   })
 
-  $($check).on("click", calculateScore);
-
-  var guessArray    = playerSelection;
-  var computerArray = computerSelection;
+  $check.on("click", function(){
+    calculateScore(playerSelection, computerSelection)
+  });
 
   function calculateScore(guess, computer) {
-   var black = 0;
-   var white = 0;
+    var computerClone = computer.slice(0);
+    var guessClone    = guess.slice(0);
 
-   // Loop through to match if there are any exact matches
-   for (var i = 0; i < guess.length; i++) {
-     if (guess[i] === computer[i]) {
-       black++;
-       // Remove from both arrays
-       guess.splice(i, 1);
-       computer.splice(i, 1);
-     }
-   }
+    console.log("comp", computerClone);
+    console.log("guess", guessClone);
 
-   // Then loop through the remaining to see if there are any that appear in the array
-   for (var i = 0; i < guess.length; i++) {
-     var index = computer.indexOf(guess[i]);
-     if (index >= 0) {
-       white++;
-       // Remove that item from the array so as not to double count
-       computer.splice(index, 1);
-     }
-   }
-   return {
-     black: black,
-     white: white
-   };
- }
+    var black = 0;
+    var white = 0;
 
- function displayScore(display) {
-  var results,
-  b, w, ww;
+    // Loop through to match if there are any exact matches
+    for (var i = 0; i < guessClone.length; i++) {
+      if (guessClone[i] === computerClone[i]) {
+        black++;
+        // Make that colour in the computer array null to prevent double lookup
+        computerClone[i] = null;
+      }
+    }
 
-  var results = $(".results").eq(numberOfGos - numberOfGuesses).find(".resultGrid");
+    console.log("comp2", computerClone);
+    console.log("guess2", guessClone);
 
-  for(b = 0; b < display.black; b++){
-   $(results[b]).addClass('black');
- }
+    // Then loop through the remaining to see if there are any that appear in the array
+    for (var i = 0; i < guessClone.length; i++) {
+      var index = computerClone.indexOf(guessClone[i]);
+      if (index >= 0) {
+        white++;
+        // Remove that item from the array so as not to double count
+        computerClone.splice(index, 1);
+      }
+    }
+    
+    var result = {
+      black: black,
+      white: white
+    }
 
- for(ww = display.white, w = b; ww > 0; ww--, w++){
-   $(results[w]).addClass('white');
- }
- console.log(results);
+    console.log("result", result);
+
+    // Clear selection
+    playerSelection = [];
+
+   
+    return displayScore(result)
+    // return result;
 }
 
+function displayScore(display) {
+  // Create variables seperated by commas
+  var results, b, w, ww;
 
+  var results = $(".results").eq(numberOfGos - 1).find(".resultGrid");
+
+  for (var b = 0; b < display.black; b++){
+    $(results[b]).addClass('black');
+  }
+
+  for (ww = display.white, w = b; ww > 0; ww--, w++){
+    $(results[w]).addClass('white');
+  }
+}
+
+function showSolution() {
+  for (var i = 0; i < $rows; i++) {
+    if (guessArray === computerArray) {
+      $(".solution").html(computerChoice)
+    } else {
+      $(".solution").html(computerChoice)
+    }
+  } 
+}
 
 
 
