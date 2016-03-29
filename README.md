@@ -36,7 +36,7 @@ Mastermind has been built using:
 
 ###Check out the game online!
 
-[Mastermind online](https://evening-scrubland-12635.herokuapp.com/)
+[Mastermind](https://evening-scrubland-12635.herokuapp.com/)
 
 
 
