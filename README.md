@@ -1,6 +1,6 @@
 # Mastermind
 
-![screenshot of game]("https://pbs.twimg.com/media/CetfvJAWEAIC21_.jpg")
+![screenshot of game](https://pbs.twimg.com/media/CetfvJAWEAIC21_.jpg)
 
 ###Introduction
 
@@ -20,19 +20,19 @@ If the player is unable to work out the combination in 10 gos, it's game over!
 
 ###The Project requirements
 
-*Render a game in the browser
-*Design logic for winning
-*Include separate HTML / CSS / JavaScript files
-*Visually display when the player has won
+* Render a game in the browser
+* Design logic for winning
+* Include separate HTML / CSS / JavaScript files
+* Visually display when the player has won
 
 
 ###Technologies
 
 Mastermind has been built using:
-*HTML/CSS
-*Javascript
-*jQuery
-*Keypress
+* HTML/CSS
+* Javascript
+* jQuery
+* Keypress
 
 
 
