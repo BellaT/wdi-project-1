@@ -62,7 +62,11 @@ $(function() {
 
   $(".colorChoice button").on("click", function(){
     // Check for 4 guesses
-    if (numberOfGuesses === 4) return alert("You can't guess anymore!");
+    if (numberOfGuesses === 4) {
+      var audio = new Audio("./bonk_rock_hit.mp3");
+         audio.play();
+      return alert("You can't guess anymore!");
+    }
 
 
     // Get the selected color
@@ -148,10 +152,14 @@ $(function() {
 
     for (var b = 0; b < display.black; b++){
       $(results[b]).css("background-color", "black");
+      var audio = new Audio("./ping_ping.mp3");
+        audio.play();
     }
 
     for (ww = display.white, w = b; ww > 0; ww--, w++){
       $(results[w]).css("background-color", "white");
+      var audio = new Audio("./ping_ping.mp3");
+        audio.play();
     }
 
     if (display.black === 4) {
@@ -159,6 +167,13 @@ $(function() {
       var audio = new Audio("./yiiiiiiihoo.mp3");
          audio.play();
       alert("Winner! Ding Ding Ding");
+    }
+
+    if (numberOfGos >= 10) {
+      showSolution();
+      var audio = new Audio("./raven.mp3");
+         audio.play();
+      alert("Oh no! The bot won this round!");
     }
   }
 
