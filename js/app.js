@@ -152,7 +152,7 @@ $(function() {
 
     for (var b = 0; b < display.black; b++){
       $(results[b]).css("background-color", "black");
-      var audio = new Audio("./ping_ping.mp3");
+      var audio = new Audio("./sound/ping_ping.mp3");
         audio.play();
     }
 
